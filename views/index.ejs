@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div class="pdf">
+    <div class="container">
+        <img  src="/images/axiomio.jpg" width="200" Height="auto" class="axiomio">
+        <img src="/images/aws.png" width="100" Height="60" class="aws">
+    </div>
+    <div class="header">
+<div class="leftheader">
+    <p id="bill"><b>Bill to Address:</b></p>
+    <%=data.billTo.name%><br>
+    <%=data.billTo.address%>
+</div>
+<div class="rightheader">
+    <br><br>
+    <%=data.invoiceId%><br>
+    Created:<%=data.createdDate%><br>
+    Due:<%=data.dueDate%><br><br>
+    <p><%=data.from.name%><br>
+    <%=data.from.email%></p>
+</div>
+</div>
+<h3>This Account Summary is for the billing period <%=data.billingPeriod%></h3>
+<p id="para">Greetings from AXIOMIO. We are writing to provide you with an account summary of your use of
+AWS services. Additional information about your bill, individual service charge details , and your
+account history are available on Account Activity Page</p>
+
+<div class="summaryTable">
+    <table style="page-break-inside: avoid;" >
+    <tr>
+    <th>Summary</th>
+    </tr>
+    <tr>
+  <td>
+    <div class="divStyles">
+      <span ><b>Aws service Charges</b><br><br>Charges</span>
+      <span><b>$<%= data.summary.total %></b><br><br>$<%=data.summary.awsCharges%></span>
+    </div>
+  </td>
+</tr>
+ <tr>
+  <td>
+    <div class="divStyles">
+      <span>Net Savings</span>
+      <span>(-)$<%=-1*data.summary.netSavings%></span>
+    </div>
+  </td>
+</tr>
+ 
+ <tr>
+  <td>
+    <div class="divStyles">
+      <span>Axiom Charges</span>
+      <span>$<%= data.summary.axiomCharges %></span>
+    </div>
+  </td>
+</tr>
+ <tr>
+  <td>
+    <div class="divStyles" >
+      <span>Gst</span>
+      <span>$<%= data.summary.gst %></span>
+    </div>
+  </td>
+</tr>
+ <tr>
+  <td>
+    <div class="divStyles">
+      <span><b>Total for this statement in USD</b></span>
+      <span><b>$<%= data.summary.total%></b></span>
+    </div>
+  </td>
+</tr>
+
+
+</table>  
+</div>
+
+
+<div class="InvoiceTable" >
+
+<table>
+    <tr>
+   <th>Invoice Details</th>
+   </tr>
+  <tr>
+    <td>
+    <div class="divStyles">
+    <span><b>Account Number</b></span>
+    <span><b>Cost</b></span>
+    </div>
+  </td>
+  </tr>
+  <tr>
+  <% let totalCost=0;
+  data.accounts.forEach(acc => { %>
+      <td>
+        <div class="divStyles">
+            <span><%= acc.accountId %></span>
+              <span>$<%= acc.finalAmount %></span>
+        </div>
+        </td>
+        </tr>
+         <% totalCost+=acc.finalAmount }) %>
+         <tr>
+            <td>
+                <div class="divStyles">
+                    <span><b>Total Amount to be Paid</b></span>
+                    <span><b>$<%=totalCost%></b></span>
+                    </div></td></tr>
+</table>
+</div>
+
+<div class="Details">
+<table style="page-break-inside: avoid;page-break-after: always;">
+    <tr>
+    <th>
+            Electronic funds transfer details:
+    </th>
+    </tr>
+    <tr>
+        <td>
+        <div>
+        <span>Axiom IO - Wire Payment Info:<span>
+        </div>
+    </tr>
+    <tr>
+        <td >
+        <div class="divStyles">
+        <span>Bank Name:</span>
+        <span><%=data.paymentDetails.bankName%></span>
+        </div>
+</td>
+    </tr>
+    <tr>
+        <td >
+            <div class="divStyles">
+        <span>Account Number</span>
+        <span><%=data.paymentDetails.accountNumber%></span>
+        </div>
+        </td>
+
+    </tr>
+    <tr>
+        <td >
+            <div class="divStyles">
+            <span>IFSC Code:</span>
+        <span><%=data.paymentDetails.ifscCode%></span>
+        </div>
+</td>
+    </tr>
+    <tr>
+        <td >
+            <div class="divStyles">
+                <span>SWIFT ID:</span>
+        <span><%=data.paymentDetails.swiftId%></span>
+    </div></td>
+    </tr>
+    <tr>
+        <td >
+            <div class="divStyles">
+            <span>Branch:</span>
+        <span><%=data.paymentDetails.branch%></span>
+        </div>
+        </td>
+
+    </tr>
+</table>
+</div>
+
+<div class="summaryTable">
+        <% data.accounts.forEach(acc=>{%>
+            <div style="page-break-after: always;">
+            <h2>ACCOUNT ID: <%=acc.accountId%></h2>
+            <table>
+               <tr>
+                  <th>Summary by Account (<%=acc.accountId%>)</th>
+                </tr>
+               <tr>
+                  <td>
+                     <div class="divStyles">
+                          <span>AWS Infrastructure Cost</span>
+                           <span>$<%=acc.awsCost%></span>
+                     </div>
+                    </td>
+                </tr>
+        <tr>
+            <td>
+                <div class="divStyles">
+                     <span>Savings</span>
+                     <span>(-)$<%=-1*acc.savings%></span>
+                </div>
+             </td>
+        </tr>
+        <tr>
+           <td>
+               <div class="divStyles">
+                   <span>Service Charges</span>
+                   <span>$<%=acc.serviceCharges%></span>
+                 </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="divStyles">
+                    <span>Tax</span>
+                     <span>$<%=acc.tax%></span>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+          <td >
+            <div class="divStyles">
+                <span><b>Final Amount</b></span>
+                <span><b>$<%=acc.finalAmount%></b></span>
+            </div>
+         </td>
+        </tr>
+    </table>
+        <div>
+            <table>
+                <tr>
+                <th>Details (<%=acc.accountId%>)</th>
+                </tr>
+                <% Object.entries(acc.services).forEach(([Serv,Cost])=>{ %>
+                    <tr>
+                        <td>
+                            <div class="divStyles">
+                        <span>
+                            <%= Serv %></span>
+                        <span>
+                            $<%= Cost %>
+                        </span>
+                         </div>
+                         </td>
+                    </tr>
+
+                <% }); %>
+            <tr>
+               <td>
+                <div class="divStyles">
+                 <span><b>Total</b></span>
+                 <span><b>$<%=acc.finalAmount%></b></span>
+                </div>
+                </td>
+            </tr>                
+            <br>
+            </table>
+            </div>
+            </div>
+        <% }); %>
+</div>
+</div>
+</div>
+</body>
+</html>

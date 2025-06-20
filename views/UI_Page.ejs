@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/UIStyles.css">
+</head>
+<body>
+    <div class="Buttons">
+    <img class="image" src="images/axiomio.jpg">
+    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+  <input type="file" id="file" name="jsonFile" accept=".json"
+        onchange="document.getElementById('uploadForm').submit()" style="display:none;" />
+  <button type="button" onclick="document.getElementById('file').click()">Upload JSON File</button>
+</form>
+<br><br><br>
+    <form action="./generate-pdf">
+    <button type="submit">Generate pdf</button>
+    </form>
+    <br><br><br>
+    <form action="./download-pdf">
+    <button type="submit">Download Pdf</button>
+    </form><br><br><br>
+    <form action="./view">
+    <button type="submit">view pdf</button>
+    </form>
+    </div>
+</body>
+</html>
+</html>

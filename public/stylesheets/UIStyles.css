@@ -1,0 +1,28 @@
+.image{
+    padding-bottom: 20px;
+}
+
+.Buttons{
+    padding:60px;
+    width:fit-content;
+    border-radius: 15px;
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;
+}
+button:hover{
+         background-color:cadetblue;
+}
+
+button{
+    width:400px;
+    padding:20px 100px 20px 100px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+body{
+  background: linear-gradient(to right, #F6D242, #FF52E5);
+  margin-top:100px;
+  text-align:center;
+}
