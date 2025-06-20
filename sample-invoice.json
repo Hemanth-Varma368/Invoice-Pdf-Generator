@@ -1,0 +1,132 @@
+{
+  "invoiceId": "INV-EXAMPLE-202506030001",
+  "createdDate": "2025-06-03",
+  "dueDate": "2025-07-03",
+  "billTo": {
+    "name": "ACME TECH SOLUTIONS PVT LTD",
+    "address": [
+      "123 TECH PARK, BLOCK A",
+      "NEAR INNOVATION HUB, ELECTRONIC CITY",
+      "Bangalore 560100, Karnataka, India",
+      "GSTIN: 29ABCDE1234F1Z9"
+    ]
+  },
+  "from": {
+    "name": "CloudServe Inc.",
+    "email": "billing@cloudserve.io"
+  },
+  "billingPeriod": "May 01 - May 31, 2025",
+  "summary": {
+    "awsCharges": 6103.62,
+    "netSavings": -430.43,
+    "axiomCharges": 215.2,
+    "gst": 1059.91,
+    "total": 6948.3
+  },
+  "accounts": [
+    {
+      "accountId": "134125630713",
+      "finalAmount": 88.4,
+      "awsCost": 78.8,
+      "savings": -7.76,
+      "serviceCharges": 3.88,
+      "tax": 13.48,
+      "services": {
+        "EC2 - Other": 25.55,
+        "Amazon Elastic Compute Cloud - Compute": 15.15,
+        "Amazon Elastic Load Balancing": 9.44,
+        "Amazon Relational Database Service": 22.55,
+        "Amazon Virtual Private Cloud": 6.04,
+        "AmazonCloudWatch": 0.06
+      }
+    },
+    {
+      "accountId": "158767076239",
+      "finalAmount": 2889.3,
+      "awsCost": 2500.65,
+      "savings": -104.18,
+      "serviceCharges": 52.09,
+      "tax": 440.74,
+      "services": {
+        "AWS Config": 5.89,
+        "AWS Key Management Service": 7.01,
+        "AWS Security Hub": 18.86,
+        "EC2 - Other": 880.71,
+        "Amazon RDS": 1129.05,
+        "Amazon S3": 58.87,
+        "Amazon VPC": 52.81,
+        "AmazonCloudWatch": 73.26
+      }
+    },
+    {
+      "accountId": "216067388463",
+      "finalAmount": 1582.23,
+      "awsCost": 1432.79,
+      "savings": -183.83,
+      "serviceCharges": 91.91,
+      "tax": 241.36,
+      "services": {
+        "Amazon ElastiCache": 236.6,
+        "ECR": 57.88,
+        "EC2 - Other": 189.7,
+        "Amazon ECS": 327.88,
+        "Amazon RDS": 381.75,
+        "Amazon VPC": 38.96,
+        "AmazonCloudWatch": 45.97
+      }
+    },
+    {
+      "accountId": "272778015944",
+      "finalAmount": 1762.24,
+      "awsCost": 1557.18,
+      "savings": -127.51,
+      "serviceCharges": 63.75,
+      "tax": 268.82,
+      "services": {
+        "EC2 - Other": 455.79,
+        "Amazon Elastic Compute Cloud - Compute": 312.01,
+        "Amazon RDS": 560.68,
+        "Amazon S3": 20.78,
+        "Amazon VPC": 124.49,
+        "AmazonCloudWatch": 14.96
+      }
+    },
+    {
+      "accountId": "487489121018",
+      "finalAmount": 194.24,
+      "awsCost": 168.19,
+      "savings": -7.15,
+      "serviceCharges": 3.57,
+      "tax": 29.63,
+      "services": {
+        "EC2 - Other": 49.92,
+        "Amazon Elastic Compute Cloud - Compute": 7.9,
+        "Amazon ECS": 6.82,
+        "Amazon RDS": 69.36,
+        "Amazon VPC": 8.75,
+        "AmazonCloudWatch": 6.74
+      }
+    },
+    {
+      "accountId": "540504443436",
+      "finalAmount": 431.89,
+      "awsCost": 366.01,
+      "savings": 0,
+      "serviceCharges": 0,
+      "tax": 65.88,
+      "services": {
+        "OCBLateFee": 365.52,
+        "AWS Cost Explorer": 0.45,
+        "Amazon S3": 0.03,
+        "AWS Key Management Service": 0.01
+      }
+    }
+  ],
+  "paymentDetails": {
+    "bankName": "ABC Bank",
+    "accountNumber": "12345678901234",
+    "ifscCode": "ABCD0123456",
+    "swiftId": "ABCDBANKXXX",
+    "branch": "Tech City Branch"
+  }
+}
