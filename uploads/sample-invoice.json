@@ -111,8 +111,8 @@
       "accountId": "540504443436",
       "finalAmount": 431.89,
       "awsCost": 366.01,
-      "savings": 0,
-      "serviceCharges": 0,
+      "savings": -0.0,
+      "serviceCharges": 0.0,
       "tax": 65.88,
       "services": {
         "OCBLateFee": 365.52,
@@ -121,6 +121,52 @@
         "AWS Key Management Service": 0.01
       }
     }
+    ,
+    {
+      "accountId": "123",
+      "finalAmount": 431.89,
+      "awsCost": 366.01,
+      "savings": -0.0,
+      "serviceCharges": 0.0,
+      "tax": 65.88,
+      "services": {
+        "OCBLateFee": 365.52,
+        "AWS Cost Explorer": 0.45,
+        "Amazon S3": 0.03,
+        "AWS Key Management Service": 0.01
+      }
+    },
+    {
+      "accountId": "1234",
+      "finalAmount": 431.89,
+      "awsCost": 366.01,
+      "savings": -0.0,
+      "serviceCharges": 0.0,
+      "tax": 65.88,
+      "services": {
+        "OCBLateFee": 365.52,
+        "AWS Cost Explorer": 0.45,
+        "Amazon S3": 0.03,
+        "AWS Key Management Service": 0.01
+      }
+    } ,
+    {
+      "accountId": "1239841",
+      "finalAmount": 431.89,
+      "awsCost": 12.01,
+      "savings": -0.0,
+      "serviceCharges": 0.0,
+      "tax": 65.88,
+      "services": {
+        "OCBLateFee": 896.52,
+        "AWS Cost Explorer": 0.45,
+        "Amazon S3": 0.03,
+        "AWS Key Management Service": 0.01
+      }
+    }
+
+    
+
   ],
   "paymentDetails": {
     "bankName": "ABC Bank",
