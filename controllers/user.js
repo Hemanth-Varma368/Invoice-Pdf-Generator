@@ -1,6 +1,6 @@
 const express=require("express");
 const app=express();
-const data=require("../uploads/sample-invoice.json")
+const data=require("../uploads/sample-invoice.json");
 const puppeteer=require("puppeteer");
 const fs=require("fs");
 const path=require("path");
@@ -8,7 +8,6 @@ const ejs=require("ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
 
 function showPdf(req,res){
      res.render("index",{data:data});
@@ -73,42 +72,20 @@ async function downloadPdf(req,res){
     };
 
 
-async function uploadData(req,res){
-     try {
-         const uploadedFilePath = req.file.path; // like uploads/myfile.json
-     
-         // Read JSON File
-         const jsonData = JSON.parse(fs.readFileSync(uploadedFilePath, 'utf-8'));
-     
-         //  Render EJS HTML using uploaded JSON
-         const templatePath = path.join(__dirname, '..','views', 'index.ejs');
-         const htmlContent = await ejs.renderFile(templatePath, { data: jsonData });
-     
-         //  Generate PDF from HTML using Puppeteer
-         const browser = await puppeteer.launch();
-         const page = await browser.newPage();
-     
-         await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
-     
-         const pdfBuffer = await page.pdf({
-           format: 'A4',
-           printBackground: true
-         });
-     
-         await browser.close();
-     
-         res.set({
-           'Content-Type': 'application/pdf',
-           'Content-Disposition': 'attachment; filename=invoice.pdf',
-         });
-     
-         res.send(pdfBuffer);
-       } catch (err) {
-  console.error(' Error generating PDF:', err);
-  res.status(500).send(`Something went wrong: ${err.message}<br><pre>${err.stack}</pre>`);
-}
+async function uploadData(req, res) {
+  try {
+    if (!req.file) {
+      return res.status(400).send("No file uploaded.");
+    }
 
-     };
+    console.log("File uploaded to:", req.file.path);
+
+    res.status(200).send(`File "${req.file.originalname}" uploaded successfully`);
+  } catch (err) {
+    console.error("Error during upload:", err);
+    res.status(500).send(`Something went wrong: ${err.message}<br><pre>${err.stack}</pre>`);
+  }
+}
 
      
 
@@ -129,15 +106,15 @@ async function uploadData(req,res){
       return res.status(500).send("Invalid JSON format in sample-invoice.json");
     }
 
-    //  Ensure 'accounts' exists and is an array
+    
     if (!Array.isArray(invoiceObj.accounts)) {
       invoiceObj.accounts = [];
     }
 
-    // Push new account to accounts array
+ 
     invoiceObj.accounts.push(newAccount);
 
-    // Save the updated object back to the file
+   
     fs.writeFile(filePath, JSON.stringify(invoiceObj, null, 2), (err) => {
       if (err) {
         console.error("Failed to write updated data");

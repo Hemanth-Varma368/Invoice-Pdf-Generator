@@ -4,7 +4,7 @@ const path=require("path");
 
 const ejs=require("ejs");
 const router=require("./routes/user");
-const Router=express.Router();
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

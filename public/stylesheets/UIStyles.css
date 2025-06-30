@@ -26,3 +26,31 @@ body{
   margin-top:100px;
   text-align:center;
 }
+
+.dropDown{
+    font-size: 30px;
+}
+
+#actionDropdown{
+     padding:20px 100px 20px 100px;
+     border-radius: 15px;
+     background-color: white;
+}
+
+
+#notificationBar {
+    display: none;
+    background-color: #d1fae5; /* Soft green */
+    color: #065f46;            /* Deep green text */
+    border: 1px solid #10b981; /* Tailwind's emerald-500 */
+    padding: 12px 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    text-align: center;
+    position: relative;
+}

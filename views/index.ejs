@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+<%- include('includes/head.ejs') %>
 <body>
 <div class="pdf">
     <div class="container">
@@ -103,7 +96,7 @@ account history are available on Account Activity Page</p>
   data.accounts.forEach(acc => { %>
       <td>
         <div class="divStyles">
-            <span><%= acc.accountId %></span>
+            <span><a href= "#acc<%=acc.accountId%>" ><%= acc.accountId %></a></span>
               <span>$<%= acc.finalAmount %></span>
         </div>
         </td>
@@ -177,7 +170,7 @@ account history are available on Account Activity Page</p>
 
 <div class="summaryTable">
         <% data.accounts.forEach(acc=>{%>
-            <div style="page-break-after: always;">
+            <div id="acc<%=acc.accountId%>" style="page-break-after: always;">
             <h2>ACCOUNT ID: <%=acc.accountId%></h2>
             <table>
                <tr>
@@ -259,6 +252,4 @@ account history are available on Account Activity Page</p>
         <% }); %>
 </div>
 </div>
-</div>
-</body>
-</html>
+<%- include('includes/end.ejs') %>
